@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    h1 {
+        font-size: 40px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .Main-image {
+        width: 50%;
+        height: 50%;
+        margin-top: 80px;
+    }
+
+    .Main-image img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px;
+    }
+
+    .Small-Images {
+        width: 90%;
+        height: 30%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Small-Images i {
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    .small-box {
+        width: 400px;
+        height: 250px;
+        margin: 20px;
+    }
+
+    .small-box img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 20px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <h1>Dogs</h1>
+    <div class="Main-image">
+        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
+            class="Big-Image" alt="">
+    </div>
+    <div class="Small-Images">
+        <i onclick="previous()" class="fa-solid fa-angles-left"></i>
+        <div class="small-box">
+            <img onclick="setimage(this)"
+                src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
+                alt="">
+        </div>
+        <div class="small-box">
+            <img onclick="setimage(this)"
+                src="https://th.bing.com/th/id/R.9049aef811adaba074479be32f71e073?rik=YAMkbvddbizZCw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fn6aIVaz.jpg&ehk=rdfbDDHv9jjEa2HgTlBFM1Iq0IHAKJLcz1U5aTXs6cg%3d&risl=&pid=ImgRaw&r=0"
+                alt="">
+        </div>
+        <div class="small-box">
+            <img onclick="setimage(this)" src="https://thehappypuppysite.com/wp-content/uploads/2016/12/beagle.jpg"
+                alt="">
+        </div>
+        <div class="small-box">
+            <img onclick="setimage(this)" src="https://wallpaperaccess.com/full/266770.jpg" alt="">
+        </div>
+        <i onclick="next()" class="fa-solid fa-angles-right"></i>
+    </div>
+</body>
+<script>
+    let images = ['https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*',
+        'http://images6.fanpop.com/image/photos/39300000/Dog-dogs-39323649-1440-900.jpg',
+        'https://thehappypuppysite.com/wp-content/uploads/2016/12/beagle.jpg',
+        'https://wallpaperaccess.com/full/266770.jpg',]
+    let i = 0;
+    let Bigimg = document.querySelector(".Big-Image");
+    function setimage(data) {
+        Bigimg.src = data.src;
+    }
+    function previous(){
+        if(i<=0){
+            return false;
+        }
+        i--;
+        Bigimg.setAttribute('src',images[i])
+    }
+    function next(){
+        if(i>=images.length-1){
+            return false;
+        }
+        i++;
+        Bigimg.setAttribute('src',images[i])
+    }
+</script>
+
+</html>
